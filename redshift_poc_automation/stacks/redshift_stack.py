@@ -9,6 +9,7 @@ from redshift_poc_automation.stacks.redshiftrole_stack import RSDefaultRole
 from redshift_poc_automation.stacks.redshiftload_stack import RedshiftLoadStack
 import builtins
 import getpass
+from aws_cdk import App, Stack, RemovalPolicy
 
 
 class RedshiftStack(Stack):

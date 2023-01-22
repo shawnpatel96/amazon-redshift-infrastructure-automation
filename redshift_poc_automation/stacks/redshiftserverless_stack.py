@@ -2,6 +2,7 @@ from aws_cdk import aws_redshiftserverless
 from aws_cdk import aws_iam
 from aws_cdk import aws_secretsmanager
 from constructs import Construct
+from aws_cdk import App, Stack, RemovalPolicy
 
 from aws_cdk import aws_ec2
 import json
