@@ -81,7 +81,7 @@ class RedshiftStack(Stack):
                 secret_name=stackname+'-RedshiftClusterSecretAA',
                 generate_secret_string=aws_secretsmanager.SecretStringGenerator(
                     exclude_punctuation=True, password_length=10),
-                removal_policy=aws_cdk.RemovalPolicy.DESTROY
+                removal_policy=RemovalPolicy.DESTROY
             )
 
             # IAM Role for Cluster

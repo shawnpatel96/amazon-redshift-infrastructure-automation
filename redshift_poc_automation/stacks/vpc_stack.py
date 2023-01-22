@@ -73,7 +73,7 @@ class VpcStack(Stack):
         self.dms_security_group.add_ingress_rule(peer=aws_ec2.Peer.ipv4(onprem_cidr), connection=aws_ec2.Port.tcp(22), description="SSH from anywhere")
 
 
-        output_1 = aws_cdk.CfnOutput(
+        output_1 = CfnOutput(
             self,
             "New SG",
             value=f"{self.dms_security_group.security_group_id}",
