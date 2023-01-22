@@ -1,9 +1,9 @@
 from aws_cdk import aws_dms
-from aws_cdk import core
 from aws_cdk import aws_iam
 import boto3
 import getpass
 import json
+from constructs import Construct
 
 
 class GlobalArgs():
@@ -18,11 +18,11 @@ class GlobalArgs():
     VERSION = "2021_03_15"
     SUPPORT_EMAIL = ["aws-redshift-poc-sa-amer@amazon.com"]
 
-class DmsOnPremToRedshiftStack(core.Stack):
+class DmsOnPremToRedshiftStack(Stack):
 
     def __init__(
         self,
-        scope: core.Construct, id: str,
+        scope: Construct, id: str,
         vpc,
         dmsmigration_config: dict,
         source_config: dict,

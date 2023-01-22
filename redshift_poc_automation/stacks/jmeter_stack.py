@@ -1,16 +1,17 @@
 from aws_cdk import aws_iam
 from aws_cdk import aws_ec2
-from aws_cdk import core
+from constructs import Construct
+
 from aws_cdk import aws_secretsmanager
 import boto3
 import json
 
 
-class JmeterStack(core.Stack):
+class JmeterStack(Stack):
 
     def __init__(
             self,
-            scope: core.Construct, id: str,
+            scope: Construct, id: str,
             # cluster,
             other_config: dict,
             # redshift_config: dict,
@@ -112,6 +113,6 @@ class JmeterStack(core.Stack):
                                     key_name=keyname,
                                     role=role,
                                     security_group=my_security_group,
-                                    #            resource_signal_timeout=core.Duration.minutes(5),
+                                    #            resource_signal_timeout=Duration.minutes(5),
                                     user_data=aws_ec2.UserData.custom(input_data)
                                     )

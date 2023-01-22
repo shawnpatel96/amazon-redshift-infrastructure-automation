@@ -1,9 +1,9 @@
 import boto3
 from typing import Any
 import json
-# from constructs import Construct
+from constructs import Construct
+
 from aws_cdk import (
-    core,
     aws_iam as iam,
     aws_redshift as aws_redshift
 )
@@ -16,11 +16,11 @@ from aws_cdk.custom_resources import (
 )
 
 
-class DataSharingConsumerStack(core.Stack):
+class DataSharingConsumerStack(Stack):
 
     def __init__(
             self,
-            scope: core.Construct,
+            scope: Construct,
             id: str,
             # cluster: aws_redshift.CfnCluster,
             defaultrole: str,

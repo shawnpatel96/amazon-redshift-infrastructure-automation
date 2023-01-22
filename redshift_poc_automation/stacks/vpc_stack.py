@@ -1,5 +1,6 @@
 from aws_cdk import aws_ec2
-from aws_cdk import core
+from constructs import Construct
+
 import random
 import string
 
@@ -14,11 +15,11 @@ class GlobalArgs():
     REPO_NAME = "redshift-demo"
     VERSION = "2021_03_15"
 
-class VpcStack(core.Stack):
+class VpcStack(Stack):
 
     def __init__(
         self,
-        scope: core.Construct,
+        scope: Construct,
         id: str,
         stack_log_level: str,
         vpc_id: str,
@@ -71,7 +72,7 @@ class VpcStack(core.Stack):
         self.dms_security_group.add_ingress_rule(peer=aws_ec2.Peer.ipv4(onprem_cidr), connection=aws_ec2.Port.tcp(22), description="SSH from anywhere")
 
 
-        output_1 = core.CfnOutput(
+        output_1 = aws_cdk.CfnOutput(
             self,
             "New SG",
             value=f"{self.dms_security_group.security_group_id}",
